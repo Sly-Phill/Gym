@@ -148,11 +148,23 @@ export default function Classes() {
                   >
                     <div className="absolute inset-y-0 left-0 w-1.5" style={{ background: color, boxShadow: `0 0 20px ${color}` }} />
                     <div className="flex items-start justify-between gap-3 pl-2">
-                      <div className="min-w-0">
-                        <span className="chip" style={{ background: `${color}22`, color: ink(color) }}>
-                          {c.type}
-                        </span>
-                        <h3 className="mt-2 text-xl font-bold">{c.name}</h3>
+                      <div className="flex min-w-0 items-center gap-3">
+                        <img
+                          src={classTypes[c.type].image}
+                          alt=""
+                          width="200"
+                          height="200"
+                          loading="lazy"
+                          decoding="async"
+                          className="h-16 w-16 shrink-0 rounded-2xl border border-line/10 object-cover"
+                          style={{ boxShadow: `0 0 24px -8px ${color}` }}
+                        />
+                        <div className="min-w-0">
+                          <span className="chip" style={{ background: `${color}22`, color: ink(color) }}>
+                            {c.type}
+                          </span>
+                          <h3 className="mt-2 text-xl font-bold">{c.name}</h3>
+                        </div>
                       </div>
                       <div className="text-right">
                         <p className="font-display text-2xl font-bold">{c.time}</p>

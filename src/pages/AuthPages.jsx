@@ -19,7 +19,19 @@ function AuthShell({ title, subtitle, children, footer }) {
         <ThemeToggle />
       </header>
 
-      <main className="relative z-10 mx-auto flex w-full max-w-md flex-col px-4 pb-16 pt-10 sm:pt-16">
+      <main className="relative z-10 mx-auto grid w-full max-w-md items-center gap-12 px-4 pb-16 pt-10 sm:pt-16 lg:max-w-5xl lg:grid-cols-2 lg:px-10">
+        <motion.img
+          src="/images/auth-athlete.svg"
+          alt=""
+          width="400"
+          height="500"
+          decoding="async"
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden w-full max-w-sm justify-self-center rounded-[2.25rem] border border-line/10 shadow-glow lg:block"
+        />
+        <div className="flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -34,6 +46,7 @@ function AuthShell({ title, subtitle, children, footer }) {
           </div>
         </motion.div>
         <p className="mt-6 text-center text-sm text-muted">{footer}</p>
+        </div>
       </main>
     </div>
   )

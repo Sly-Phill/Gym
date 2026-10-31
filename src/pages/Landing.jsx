@@ -19,10 +19,10 @@ const statLabels = [
 ]
 
 const features = [
-  { icon: Dumbbell, title: 'Smart plans', text: 'Workouts that adapt to your strength, schedule and recovery.', color: '#c6ff00', to: '/library' },
-  { icon: Timer, title: 'Live mode', text: 'Rest timers, set tracking and a confetti finish line.', color: '#00e5ff', to: '/workout' },
-  { icon: Trophy, title: 'Track PRs', text: 'Watch your lifts climb and collect trophy badges.', color: '#ffd23f', to: '/progress' },
-  { icon: Calendar, title: 'Book classes', text: 'Yoga, HIIT, Spin and Boxing. Grab a spot in one tap.', color: '#ff5d73', to: '/classes' },
+  { icon: Dumbbell, title: 'Smart plans', text: 'Workouts that adapt to your strength, schedule and recovery.', color: '#c6ff00', to: '/library', image: '/images/feature-plans.svg' },
+  { icon: Timer, title: 'Live mode', text: 'Rest timers, set tracking and a confetti finish line.', color: '#00e5ff', to: '/workout', image: '/images/feature-live.svg' },
+  { icon: Trophy, title: 'Track PRs', text: 'Watch your lifts climb and collect trophy badges.', color: '#ffd23f', to: '/progress', image: '/images/feature-prs.svg' },
+  { icon: Calendar, title: 'Book classes', text: 'Yoga, HIIT, Spin and Boxing. Grab a spot in one tap.', color: '#ff5d73', to: '/classes', image: '/images/feature-classes.svg' },
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -141,6 +141,15 @@ export default function Landing() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="absolute inset-6 rounded-[2.5rem] bg-gradient-brand opacity-30 blur-3xl" />
+          {/* Sprinter illustration peeking out from behind the phone card */}
+          <img
+            src="/images/hero-athlete.svg"
+            alt=""
+            width="400"
+            height="480"
+            decoding="async"
+            className="pointer-events-none absolute -right-24 -top-24 w-64 select-none opacity-90 sm:-right-44 sm:-top-16 sm:w-80"
+          />
           <div className="glass relative !rounded-[2.5rem] p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -212,18 +221,31 @@ export default function Landing() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
             >
-              <Link to={f.to} className="glass group block h-full p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow">
-                <div
-                  className="grid h-12 w-12 place-items-center rounded-2xl transition-transform group-hover:scale-110"
-                  style={{ background: `${f.color}1f`, color: f.color }}
-                >
-                  <f.icon className="h-6 w-6" />
+              <Link to={f.to} className="glass group block h-full p-4 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow">
+                <div className="relative overflow-hidden rounded-2xl border border-line/10">
+                  <img
+                    src={f.image}
+                    alt=""
+                    width="320"
+                    height="200"
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute bottom-3 left-3 grid h-11 w-11 place-items-center rounded-xl bg-[#07090d]/70 backdrop-blur transition-transform group-hover:scale-110"
+                    style={{ color: f.color }}
+                  >
+                    <f.icon className="h-5 w-5" />
+                  </div>
                 </div>
+                <div className="px-2 pb-2">
                 <h2 className="mt-5 text-lg font-semibold">{f.title}</h2>
                 <p className="mt-1 text-sm text-muted">{f.text}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">
                   Explore <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
+                </div>
               </Link>
             </motion.div>
           ))}

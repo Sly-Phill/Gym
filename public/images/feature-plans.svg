@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200">
+  <!-- Smart plans: workout plan on a phone + dumbbell -->
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="200"><stop offset="0" stop-color="#c6ff00"/><stop offset="1" stop-color="#00e5ff"/></linearGradient>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="200"><stop offset="0" stop-color="#121a12"/><stop offset="1" stop-color="#080b0f"/></linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#c6ff00" stop-opacity="0.28"/><stop offset="1" stop-color="#c6ff00" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#fff" stroke-opacity="0.05"/></pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="320" height="200" fill="url(#bg)"/>
+  <rect width="320" height="200" fill="url(#grid)"/>
+  <circle cx="160" cy="100" r="110" fill="url(#halo)"/>
+
+  <!-- phone -->
+  <g filter="url(#glow)">
+    <rect x="108" y="22" width="104" height="160" rx="18" fill="#0b0f15" stroke="url(#g)" stroke-width="4"/>
+    <rect x="144" y="32" width="32" height="5" rx="2.5" fill="url(#g)" opacity="0.6"/>
+  </g>
+  <!-- checklist rows -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="132" cy="64" r="9" fill="url(#g)"/><path d="M127.5 64l3 3 6-6" stroke="#07090d" stroke-width="3" fill="none"/>
+    <path d="M150 60h44M150 69h28" stroke="#fff" stroke-opacity="0.75" stroke-width="5"/>
+    <circle cx="132" cy="100" r="9" fill="url(#g)"/><path d="M127.5 100l3 3 6-6" stroke="#07090d" stroke-width="3" fill="none"/>
+    <path d="M150 96h40M150 105h24" stroke="#fff" stroke-opacity="0.75" stroke-width="5"/>
+    <circle cx="132" cy="136" r="9" fill="none" stroke="url(#g)" stroke-width="3"/>
+    <path d="M150 132h46M150 141h30" stroke="#fff" stroke-opacity="0.35" stroke-width="5"/>
+  </g>
+
+  <!-- dumbbell -->
+  <g filter="url(#glow)" transform="rotate(-28 238 150)">
+    <path d="M208 150h60" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+    <rect x="196" y="128" width="14" height="44" rx="5" fill="url(#g)"/>
+    <rect x="182" y="136" width="12" height="28" rx="4" fill="url(#g)" opacity="0.8"/>
+    <rect x="266" y="128" width="14" height="44" rx="5" fill="url(#g)"/>
+    <rect x="282" y="136" width="12" height="28" rx="4" fill="url(#g)" opacity="0.8"/>
+  </g>
+</svg>

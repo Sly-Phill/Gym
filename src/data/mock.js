@@ -102,10 +102,10 @@ export const personalRecords = [
 ]
 
 export const classTypes = {
-  Yoga: { color: '#a78bfa' },
-  HIIT: { color: '#c6ff00' },
-  Spin: { color: '#00e5ff' },
-  Boxing: { color: '#ff5d73' },
+  Yoga: { color: '#a78bfa', image: '/images/class-yoga.svg' },
+  HIIT: { color: '#c6ff00', image: '/images/class-hiit.svg' },
+  Spin: { color: '#00e5ff', image: '/images/class-spin.svg' },
+  Boxing: { color: '#ff5d73', image: '/images/class-boxing.svg' },
 }
 
 export const schedule = [

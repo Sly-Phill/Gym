@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200">
+  <!-- Book classes: calendar with a booked day + group of members -->
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="200"><stop offset="0" stop-color="#c6ff00"/><stop offset="1" stop-color="#00e5ff"/></linearGradient>
+    <linearGradient id="r" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="200"><stop offset="0" stop-color="#ff8a9a"/><stop offset="1" stop-color="#ff4fd8"/></linearGradient>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="320" y2="200"><stop offset="0" stop-color="#1f0f16"/><stop offset="1" stop-color="#080b0f"/></linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ff5d73" stop-opacity="0.26"/><stop offset="1" stop-color="#ff5d73" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#fff" stroke-opacity="0.05"/></pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="320" height="200" fill="url(#bg)"/>
+  <rect width="320" height="200" fill="url(#grid)"/>
+  <circle cx="130" cy="96" r="110" fill="url(#halo)"/>
+
+  <!-- calendar -->
+  <g filter="url(#glow)">
+    <rect x="40" y="30" width="160" height="140" rx="16" fill="#0b0f15" stroke="url(#r)" stroke-width="4"/>
+    <path d="M40 66h160" stroke="url(#r)" stroke-width="3"/>
+    <path d="M78 20v20M162 20v20" stroke="url(#r)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g fill="#fff" fill-opacity="0.18">
+    <rect x="58" y="82" width="22" height="18" rx="5"/><rect x="88" y="82" width="22" height="18" rx="5"/><rect x="118" y="82" width="22" height="18" rx="5"/><rect x="148" y="82" width="22" height="18" rx="5"/>
+    <rect x="58" y="110" width="22" height="18" rx="5"/><rect x="118" y="110" width="22" height="18" rx="5"/><rect x="148" y="110" width="22" height="18" rx="5"/>
+    <rect x="58" y="138" width="22" height="18" rx="5"/><rect x="88" y="138" width="22" height="18" rx="5"/><rect x="118" y="138" width="22" height="18" rx="5"/>
+  </g>
+  <!-- booked day -->
+  <rect x="88" y="110" width="22" height="18" rx="5" fill="url(#g)" filter="url(#glow)"/>
+  <path d="M93 119l4 4 8-8" fill="none" stroke="#07090d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- members -->
+  <g filter="url(#glow)">
+    <circle cx="236" cy="96" r="13" fill="url(#g)"/>
+    <path d="M212 150c0-20 11-32 24-32s24 12 24 32" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="276" cy="108" r="11" fill="url(#r)"/>
+    <path d="M256 156c0-17 9-27 20-27s20 10 20 27" fill="none" stroke="url(#r)" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
