@@ -152,8 +152,8 @@ export default function Classes() {
                         <img
                           src={classTypes[c.type].image}
                           alt=""
-                          width="200"
-                          height="200"
+                          width="240"
+                          height="240"
                           loading="lazy"
                           decoding="async"
                           className="h-16 w-16 shrink-0 rounded-2xl border border-line/10 object-cover"

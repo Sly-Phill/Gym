@@ -21,15 +21,15 @@ function AuthShell({ title, subtitle, children, footer }) {
 
       <main className="relative z-10 mx-auto grid w-full max-w-md items-center gap-12 px-4 pb-16 pt-10 sm:pt-16 lg:max-w-5xl lg:grid-cols-2 lg:px-10">
         <motion.img
-          src="/images/auth-athlete.svg"
+          src="/images/auth-athlete.webp"
           alt=""
-          width="400"
-          height="500"
+          width="800"
+          height="1000"
           decoding="async"
           initial={{ opacity: 0, x: -24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden w-full max-w-sm justify-self-center rounded-[2.25rem] border border-line/10 shadow-glow lg:block"
+          className="hidden aspect-[4/5] w-full max-w-sm justify-self-center rounded-[2.25rem] border border-line/10 object-cover shadow-glow lg:block"
         />
         <div className="flex flex-col">
         <motion.div

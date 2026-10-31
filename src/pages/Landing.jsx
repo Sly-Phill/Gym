@@ -19,10 +19,10 @@ const statLabels = [
 ]
 
 const features = [
-  { icon: Dumbbell, title: 'Smart plans', text: 'Workouts that adapt to your strength, schedule and recovery.', color: '#c6ff00', to: '/library', image: '/images/feature-plans.svg' },
-  { icon: Timer, title: 'Live mode', text: 'Rest timers, set tracking and a confetti finish line.', color: '#00e5ff', to: '/workout', image: '/images/feature-live.svg' },
-  { icon: Trophy, title: 'Track PRs', text: 'Watch your lifts climb and collect trophy badges.', color: '#ffd23f', to: '/progress', image: '/images/feature-prs.svg' },
-  { icon: Calendar, title: 'Book classes', text: 'Yoga, HIIT, Spin and Boxing. Grab a spot in one tap.', color: '#ff5d73', to: '/classes', image: '/images/feature-classes.svg' },
+  { icon: Dumbbell, title: 'Smart plans', text: 'Workouts that adapt to your strength, schedule and recovery.', color: '#c6ff00', to: '/library', image: '/images/feature-plans.webp' },
+  { icon: Timer, title: 'Live mode', text: 'Rest timers, set tracking and a confetti finish line.', color: '#00e5ff', to: '/workout', image: '/images/feature-live.webp' },
+  { icon: Trophy, title: 'Track PRs', text: 'Watch your lifts climb and collect trophy badges.', color: '#ffd23f', to: '/progress', image: '/images/feature-prs.webp' },
+  { icon: Calendar, title: 'Book classes', text: 'Yoga, HIIT, Spin and Boxing. Grab a spot in one tap.', color: '#ff5d73', to: '/classes', image: '/images/feature-classes.webp' },
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -141,14 +141,14 @@ export default function Landing() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="absolute inset-6 rounded-[2.5rem] bg-gradient-brand opacity-30 blur-3xl" />
-          {/* Sprinter illustration peeking out from behind the phone card */}
+          {/* Athlete photo peeking out from behind the phone card, edges faded into the background */}
           <img
-            src="/images/hero-athlete.svg"
+            src="/images/hero-athlete.webp"
             alt=""
-            width="400"
-            height="480"
+            width="640"
+            height="800"
             decoding="async"
-            className="pointer-events-none absolute -right-24 -top-24 w-64 select-none opacity-90 sm:-right-44 sm:-top-16 sm:w-80"
+            className="pointer-events-none absolute -right-24 -top-24 aspect-[4/5] w-60 select-none rounded-[2rem] object-cover opacity-90 shadow-glow [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_100%)] sm:-right-48 sm:-top-14 sm:w-80"
           />
           <div className="glass relative !rounded-[2.5rem] p-6">
             <div className="flex items-center justify-between">
@@ -226,8 +226,8 @@ export default function Landing() {
                   <img
                     src={f.image}
                     alt=""
-                    width="320"
-                    height="200"
+                    width="800"
+                    height="500"
                     loading="lazy"
                     decoding="async"
                     className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
