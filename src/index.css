@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base: 244 246 240;
+  --surface: 255 255 255;
+  --ink: 14 18 24;
+  --muted: 92 102 115;
+  --line: 14 18 24;
+  --accent: 64 94 0; /* darker than the neon lime so text passes WCAG AA on the light background */
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(14, 18, 24, 0.08);
+  --grid: rgba(14, 18, 24, 0.05);
+  color-scheme: light;
+}
+
+.dark {
+  --base: 7 9 13;
+  --surface: 16 20 27;
+  --ink: 240 244 236;
+  --muted: 140 150 162;
+  --line: 255 255 255;
+  --accent: 198 255 0;
+  --glass: rgba(20, 25, 33, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --grid: rgba(255, 255, 255, 0.035);
+  color-scheme: dark;
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-base text-ink font-sans antialiased;
+    min-height: 100dvh;
+    transition: background-color .4s ease, color .4s ease;
+  }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  ::selection { background: #c6ff00; color: #07090d; }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    @apply rounded-3xl shadow-card;
+  }
+  .text-gradient {
+    background-image: linear-gradient(100deg, #c6ff00 0%, #7dff6a 40%, #00e5ff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  html:not(.dark) .text-gradient {
+    background-image: linear-gradient(100deg, #6ea000 0%, #1aa86a 45%, #0090b8 100%);
+  }
+  .bg-gradient-brand { background: linear-gradient(110deg, #c6ff00 0%, #00e5ff 100%); }
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 font-display font-semibold text-[#07090d] transition-all duration-300;
+    background-image: linear-gradient(110deg, #c6ff00 0%, #9dff3a 50%, #00e5ff 100%);
+    background-size: 200% auto;
+    box-shadow: 0 10px 30px -10px rgba(198,255,0,.6);
+  }
+  .btn-primary:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 16px 40px -10px rgba(0,229,255,.6); }
+  .btn-primary:active { transform: translateY(0) scale(.98); }
+  .btn-primary:disabled { opacity: .45; pointer-events: none; }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-line/10 px-5 py-3 font-medium transition-all duration-300 hover:border-accent/50 hover:bg-line/5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: rgb(var(--line) / 0.07);
+  }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgb(198 255 0 / 0.08), rgb(0 229 255 / 0.08), transparent);
+    animation: skeleton-sweep 1.6s ease-in-out infinite;
+  }
+  .glass[role='status'] { min-height: 4rem; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+@keyframes skeleton-sweep { to { transform: translateX(100%); } }
+
+/* Light theme: the neon text colours are too faint on a light background (WCAG AA contrast). */
+html:not(.dark) .text-cyan { color: #00677a; }
+html:not(.dark) .text-orange-400 { color: #b4480c; }
+html:not(.dark) .text-yellow-400 { color: #8a6500; }
+html:not(.dark) .text-pink-400 { color: #b0177f; }
+html:not(.dark) .text-rose-400 { color: #be123c; }
+html:not(.dark) .text-amber-500 { color: #a35a00; }
+
+.recharts-tooltip-cursor { fill: rgba(198,255,0,.06) !important; }
+.recharts-surface:focus, .recharts-wrapper:focus, .recharts-sector:focus { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
